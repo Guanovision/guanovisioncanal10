@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Canal</title>
+
+    <style>
+        /* CONFIGURACIÓN GENERAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* ENCABEZADO */
+        header {
+            background-color: #111827;
+            color: white;
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 40px;
+        }
+
+        /* LOGO */
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* MENÚ */
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #374151;
+        }
+
+        /* BOTÓN BUZÓN */
+        .buzon {
+            background-color: #dc2626;
+            border-radius: 6px;
+        }
+
+        .buzon:hover {
+            background-color: #b91c1c;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        main {
+            padding: 40px;
+        }
+
+        .bienvenida {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .bienvenida h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .bienvenida p {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO DE LA PÁGINA -->
+    <header>
+
+        <!-- NOMBRE DEL CANAL -->
+        <div class="logo">
+            MI CANAL
+        </div>
+
+        <!-- MENÚ DE NAVEGACIÓN -->
+      <nav>
+    <a href="index.html">Inicio</a>
+
+    <a href="https://www.guanovision.com" target="_blank">
+        🌐 Guanovisión
+    </a>
+
+    <a href="CÓDIGO DE ÉTICA DEL CANAL GUANOVISIÓN.pdf" target="_blank">
+        📜 Código de Ética
+    </a>
+
+    <a href="noticias.html">📰 Noticias</a>
+    <a href="deportes.html">⚽ Deportes</a>
+    <a href="entretenimiento.html">🎵 Entretenimiento</a>
+    <a href="programacion.html">📺 Programación</a>
+
+    <a href="buzon.html" class="buzon">📬 Buzón</a>
+</nav>
+
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <section class="bienvenida">
+
+            <h1>Bienvenidos a MI CANAL</h1>
+
+            <p>
+                Noticias, deportes, entretenimiento y mucho más.
+            </p>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+ 
