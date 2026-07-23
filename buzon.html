@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    ```
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Buzón - Guanovisión</title>
+
+    <style>
+        /* CONFIGURACIÓN GENERAL */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+
+        /* ENCABEZADO */
+
+        header {
+            background-color: #111827;
+            color: white;
+            min-height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 10px 40px;
+            gap: 20px;
+        }
+
+
+        /* LOGO */
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+
+        /* MENÚ */
+
+        nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 6px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            background-color: #374151;
+        }
+
+
+        /* BOTÓN BUZÓN */
+
+        .buzon {
+            background-color: #dc2626;
+            border-radius: 6px;
+        }
+
+        .buzon:hover {
+            background-color: #b91c1c;
+        }
+
+
+        /* CONTENIDO PRINCIPAL */
+
+        main {
+            padding: 40px;
+        }
+
+
+        /* CAJA DEL BUZÓN */
+
+        .buzon-contenido {
+
+            max-width: 700px;
+
+            margin: 0 auto;
+
+            background-color: white;
+
+            padding: 35px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+        }
+
+
+        .buzon-contenido h1 {
+
+            text-align: center;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .buzon-contenido p {
+
+            text-align: center;
+
+            color: #555;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* CAMPOS */
+
+        label {
+
+            display: block;
+
+            margin-top: 15px;
+
+            margin-bottom: 5px;
+
+            font-weight: bold;
+
+        }
+
+
+        input,
+        textarea {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 6px;
+
+            font-size: 16px;
+
+        }
+
+
+        textarea {
+
+            height: 150px;
+
+            resize: vertical;
+
+        }
+
+
+        /* BOTÓN CORREO */
+
+        .btn-correo {
+
+            width: 100%;
+
+            margin-top: 20px;
+
+            padding: 14px;
+
+            background-color: #dc2626;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+        }
+
+
+        .btn-correo:hover {
+
+            background-color: #b91c1c;
+
+        }
+
+
+        /* BOTÓN WHATSAPP */
+
+        .whatsapp {
+
+            display: block;
+
+            margin-top: 15px;
+
+            padding: 14px;
+
+            background-color: #25D366;
+
+            color: white;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            border-radius: 6px;
+
+            font-size: 16px;
+
+        }
+
+
+        .whatsapp:hover {
+
+            background-color: #1ebe5d;
+
+        }
+
+
+        /* TABLETS */
+
+        @media (max-width: 1000px) {
+
+            header {
+
+                flex-direction: column;
+
+                padding: 20px;
+
+            }
+
+            nav {
+
+                width: 100%;
+
+            }
+
+        }
+
+
+        /* CELULARES */
+
+        @media (max-width: 600px) {
+
+            header {
+
+                padding: 15px 10px;
+
+            }
+
+            .logo img {
+
+                height: 50px;
+
+            }
+
+            nav {
+
+                flex-direction: column;
+
+                width: 100%;
+
+                gap: 5px;
+
+            }
+
+            nav a {
+
+                text-align: center;
+
+                width: 100%;
+
+                padding: 10px;
+
+            }
+
+            main {
+
+                padding: 15px;
+
+            }
+
+            .buzon-contenido {
+
+                padding: 25px 15px;
+
+            }
+
+        }
+    </style>
+    ```
+
+</head>
+
+<body>
+
+    ```
+    <!-- ENCABEZADO -->
+
+    <header>
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <img src="Logo.png" alt="Logo del canal">
+
+        </div>
+
+
+        <!-- MENÚ -->
+
+        <nav>
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+
+            <a href="CÓDIGO DE ÉTICA DEL CANAL GUANOVISIÓN.pdf" target="_blank">
+
+                📜 Código de Ética
+
+            </a>
+
+
+            <a href="noticias.html">
+
+                📰 Noticias
+
+            </a>
+
+
+            <a href="deportes.html">
+
+                ⚽ Deportes
+
+            </a>
+
+
+            <a href="entretenimiento.html">
+
+                🎵 Entretenimiento
+
+            </a>
+
+
+            <a href="programacion.html">
+
+                📺 Programación
+
+            </a>
+
+
+            <a href="buzon.html" class="buzon">
+
+                📬 Buzón
+
+            </a>
+
+        </nav>
+
+
+    </header>
+
+
+    <!-- CONTENIDO DEL BUZÓN -->
+
+    <main>
+
+
+        <section class="buzon-contenido">
+
+
+            <h1>
+
+                📬 Buzón de Guanovisión
+
+            </h1>
+
+
+            <p>
+
+                Envíanos tus comentarios, sugerencias, denuncias o información.
+
+            </p>
+
+
+            <!-- NOMBRE -->
+
+            <label for="nombre">
+
+                Nombre:
+
+            </label>
+
+
+            <input type="text" id="nombre" placeholder="Escribe tu nombre">
+
+
+            <!-- CORREO -->
+
+            <label for="correo">
+
+                Tu correo electrónico:
+
+            </label>
+
+
+            <input type="email" id="correo" placeholder="Escribe tu correo">
+
+
+            <!-- MENSAJE -->
+
+            <label for="mensaje">
+
+                Mensaje:
+
+            </label>
+
+
+            <textarea id="mensaje" placeholder="Escribe aquí tu mensaje"></textarea>
+
+
+            <!-- BOTÓN CORREO -->
+
+            <button class="btn-correo" onclick="enviarCorreo()">
+
+                📧 Enviar mensaje por correo
+
+            </button>
+
+
+            <!-- BOTÓN WHATSAPP -->
+
+            <!-- CAMBIA LOS X POR TU NÚMERO COMPLETO -->
+
+            <a class="whatsapp" href="https://wa.me/+593098729730" target="_blank">
+
+                📱 Escribir por WhatsApp
+
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT PARA EL CORREO -->
+
+
+    <script>
+
+
+        function enviarCorreo() {
+
+
+            const nombre =
+
+                document.getElementById("nombre").value;
+
+
+            const correo =
+
+                document.getElementById("correo").value;
+
+
+            const mensaje =
+
+                document.getElementById("mensaje").value;
+
+
+            const destinatario =
+
+                "ceci33cruza@gmail.com";
+
+
+            const asunto =
+
+                "Mensaje recibido desde el Buzón de Guanovisión";
+
+
+            const cuerpo =
+
+
+                "Nombre: " + nombre +
+
+
+                "\n\nCorreo: " + correo +
+
+
+                "\n\nMensaje:\n" + mensaje;
+
+
+            window.location.href =
+
+
+                "mailto:" +
+
+
+                destinatario +
+
+
+                "?subject=" +
+
+
+                encodeURIComponent(asunto) +
+
+
+                "&body=" +
+
+
+                encodeURIComponent(cuerpo);
+
+
+        }
+
+
+    </script>
+    ```
+
+</body>
+
+</html>
