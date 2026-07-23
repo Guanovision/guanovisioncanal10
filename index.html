@@ -153,12 +153,37 @@
             }
 
         }
+
+        .fecha-hora {
+            margin-left: auto;
+            text-align: right;
+            color: white;
+            white-space: nowrap;
+        }
+
+        #fecha {
+            font-size: 14px;
+        }
+
+        #hora {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+
+            .fecha-hora {
+                margin-left: 0;
+                text-align: center;
+                width: 100%;
+            }
+
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- ENCABEZADO DE LA PÁGINA -->
     <header>
 
         <!-- LOGO DEL CANAL -->
@@ -181,7 +206,14 @@
             <a href="buzon.html" class="buzon">📬 Buzón</a>
         </nav>
 
+        <!-- FECHA Y HORA -->
+        <div class="fecha-hora">
+            <div id="fecha"></div>
+            <div id="hora"></div>
+        </div>
+
     </header>
+
 
 
     <!-- CONTENIDO PRINCIPAL -->
@@ -198,6 +230,60 @@
         </section>
 
     </main>
+    <script>
+
+        function actualizarFechaHora() {
+
+            const ahora = new Date();
+
+            const dias = [
+                "Domingo",
+                "Lunes",
+                "Martes",
+                "Miércoles",
+                "Jueves",
+                "Viernes",
+                "Sábado"
+            ];
+
+            const meses = [
+                "Enero",
+                "Febrero",
+                "Marzo",
+                "Abril",
+                "Mayo",
+                "Junio",
+                "Julio",
+                "Agosto",
+                "Septiembre",
+                "Octubre",
+                "Noviembre",
+                "Diciembre"
+            ];
+
+            const diaSemana = dias[ahora.getDay()];
+            const dia = ahora.getDate();
+            const mes = meses[ahora.getMonth()];
+            const año = ahora.getFullYear();
+
+            const horas = String(ahora.getHours()).padStart(2, "0");
+            const minutos = String(ahora.getMinutes()).padStart(2, "0");
+            const segundos = String(ahora.getSeconds()).padStart(2, "0");
+
+            document.getElementById("fecha").textContent =
+                `${diaSemana} ${dia} de ${mes} ${año}`;
+
+            document.getElementById("hora").textContent =
+                `${horas}:${minutos}:${segundos}`;
+
+        }
+
+        actualizarFechaHora();
+
+        setInterval(actualizarFechaHora, 1000);
+
+    </script>
+
 
 </body>
 
