@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Canal</title>
+  <title>Guano Visión TV</title>
   <style>
     * {
       margin: 0;
@@ -14,10 +14,13 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* ===============================
-       BARRA SUPERIOR (PC Y CELULAR)
+       BARRA SUPERIOR (FIJA Y VISIBLE)
        =============================== */
     header {
       background-color: #111827;
@@ -28,9 +31,9 @@
       justify-content: space-between;
       padding: 0 20px;
       position: relative;
+      flex-shrink: 0; /* NUNCA SE OCULTA NI SE MUEVE */
     }
 
-    /* LOGO + FECHA/HORA (IZQUIERDA) */
     .logo-fecha {
       display: flex;
       align-items: center;
@@ -49,7 +52,6 @@
     #fecha { font-size: 12px; }
     #hora { font-size: 16px; font-weight: bold; }
 
-    /* MENÚ NORMAL (SOLO EN PC) */
     nav.menu-principal {
       display: flex;
       gap: 8px;
@@ -64,10 +66,18 @@
       border-radius: 5px;
       transition: 0.2s;
       white-space: nowrap;
+      display: flex;
+      align-items: center;
     }
 
     nav.menu-principal a:hover {
       background-color: #374151;
+    }
+
+    .icono-inicio {
+      height: 20px;
+      width: auto;
+      display: block;
     }
 
     .buzon {
@@ -78,7 +88,7 @@
       background-color: #b91c1c;
     }
 
-    /* CAJÓN REDES (FIJO IZQUIERDA, MÁS ABAJO - SOLO EN PC) */
+    /* CAJÓN REDES FIJO (SOLO PC) */
     .cajon-redes {
       position: absolute;
       top: 90px;
@@ -102,8 +112,11 @@
       transform: scale(1.15);
     }
 
-    /* CONTENIDO */
+    /* ===============================
+       CONTENIDO PRINCIPAL
+       =============================== */
     main {
+      flex: 1;
       padding: 60px 20px 40px 20px;
     }
     .bienvenida {
@@ -115,17 +128,47 @@
     .bienvenida h1 { font-size: 34px; margin-bottom: 12px; }
     .bienvenida p { font-size: 17px; color: #555; }
 
-    /* =============================================
-       📱 VISTA CELULAR / TABLETA
-       ============================================= */
+    /* ===============================
+       BARRA INFERIOR (MISMO COLOR SUPERIOR - SIEMPRE VISIBLE)
+       =============================== */
+    footer {
+      background-color: #111827; /* MISMO COLOR OSCURO */
+      color: white;
+      padding: 15px 20px;
+      margin-top: auto;
+      flex-shrink: 0; /* NUNCA SE OCULTA */
+    }
+
+    .menu-inferior {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .menu-inferior a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 5px 10px;
+      transition: 0.2s;
+      border-radius: 4px;
+    }
+
+    .menu-inferior a:hover {
+      background-color: #374151;
+    }
+
+    /* ===============================
+       📱 VISTA CELULAR
+       =============================== */
     @media (max-width: 900px) {
       header { height: auto; padding: 12px 15px; flex-wrap: wrap; }
 
-      /* OCULTAR MENÚ NORMAL Y CAJÓN GRANDE */
       nav.menu-principal { display: none; }
       .cajon-redes { display: none; }
 
-      /* BOTÓN MENÚ HAMBURGUESA */
       .boton-menu {
         display: block;
         font-size: 28px;
@@ -136,7 +179,6 @@
         padding: 5px 10px;
       }
 
-      /* MENÚ DESPLEGABLE */
       .menu-desplegable {
         width: 100%;
         display: none;
@@ -156,7 +198,6 @@
       }
       .menu-desplegable a:hover { background-color: #374151; }
 
-      /* REDES SOCIALES EN EL LUGAR MORADO (IZQUIERDA) */
       .redes-movil {
         display: flex;
         gap: 10px;
@@ -174,9 +215,10 @@
 
       main { padding: 20px 15px; }
       .bienvenida h1 { font-size: 26px; }
+
+      .menu-inferior { gap: 15px; font-size: 14px; }
     }
 
-    /* EN PC OCULTAR BOTÓN Y REDES MOVIL */
     @media (min-width: 901px) {
       .boton-menu, .menu-desplegable, .redes-movil { display: none !important; }
     }
@@ -185,7 +227,6 @@
 
 <body>
   <header>
-    <!-- LOGO + FECHA/HORA (LADO IZQUIERDO) -->
     <div class="logo-fecha">
       <div class="logo">
         <img src="Logo.png" alt="Guano Visión TV" />
@@ -196,31 +237,29 @@
       </div>
     </div>
 
-    <!-- BOTÓN HAMBURGUESA (SOLO MOVIL) -->
     <button class="boton-menu" onclick="mostrarMenu()">☰</button>
 
-    <!-- MENÚ PRINCIPAL (SOLO PC) -->
+    <!-- MENÚ SUPERIOR SIN CÓDIGO DE ÉTICA + IMAGEN INICIO -->
     <nav class="menu-principal">
-      <a href="index.html">Inicio</a>
-      <a href="CÓDIGO DE ÉTICA DEL CANAL GUANOVISIÓN.pdf" target="_blank">📜 Código de Ética</a>
+      <a href="index.html">
+        <img src="Inicio.png" alt="Inicio" class="icono-inicio" />
+      </a>
       <a href="noticias.html">📰 Noticias</a>
       <a href="deportes.html">⚽ Deportes</a>
       <a href="entretenimiento.html">🎵 Entretenimiento</a>
       <a href="buzon.html" class="buzon">📬 Buzón</a>
     </nav>
 
-    <!-- MENÚ DESPLEGABLE (SOLO MOVIL) -->
     <nav class="menu-desplegable" id="menu-movil">
-      <a href="index.html">Inicio</a>
+      <a href="index.html">
+        <img src="Inicio.png" alt="Inicio" class="icono-inicio" />
+      </a>
       <a href="noticias.html">📰 Noticias</a>
       <a href="deportes.html">⚽ Deportes</a>
       <a href="entretenimiento.html">🎵 Entretenimiento</a>
       <a href="buzon.html" class="buzon">📬 Buzón</a>
-      <a href="CÓDIGO DE ÉTICA DEL CANAL GUANOVISIÓN.pdf" target="_blank">📜 Código de Ética</a>
-
     </nav>
 
-    <!-- REDES SOCIALES (SOLO MOVIL - LUGAR MORADO) -->
     <div class="redes-movil">
       <a href="https://www.facebook.com/" target="_blank"><img src="facebook.png" alt="Facebook"></a>
       <a href="https://www.instagram.com/" target="_blank"><img src="instagram.png" alt="Instagram"></a>
@@ -228,7 +267,6 @@
       <a href="https://www.tiktok.com/" target="_blank"><img src="tiktok.png" alt="TikTok"></a>
     </div>
 
-    <!-- CAJÓN REDES FIJO (SOLO PC) -->
     <div class="cajon-redes">
       <a href="https://www.facebook.com/" target="_blank"><img src="facebook.png" alt="Facebook" /></a>
       <a href="https://www.instagram.com/" target="_blank"><img src="instagram.png" alt="Instagram" /></a>
@@ -244,6 +282,15 @@
     </section>
   </main>
 
+  <!-- BARRA INFERIOR MISMO COLOR, SIEMPRE VISIBLE -->
+  <footer>
+    <div class="menu-inferior">
+      <a href="CÓDIGO DE ÉTICA DEL CANAL GUANOVISIÓN.pdf" target="_blank">📜 Código de Ética</a>
+      <a href="quienes-somos.html">👥 Quiénes Somos</a>
+      <a href="mision-vision.html">🎯 Misión y Visión</a>
+    </div>
+  </footer>
+
   <script>
     function actualizarFechaHora() {
       const ahora = new Date();
@@ -255,7 +302,6 @@
     actualizarFechaHora();
     setInterval(actualizarFechaHora, 1000);
 
-    // FUNCIÓN PARA ABRIR/CERRAR MENÚ EN MOVIL
     function mostrarMenu() {
       const menu = document.getElementById("menu-movil");
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
