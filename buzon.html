@@ -305,6 +305,106 @@
             }
 
         }
+
+        /* VENTANA DE AGRADECIMIENTO */
+
+        .modal {
+
+            display: none;
+
+            position: fixed;
+
+            z-index: 1000;
+
+            left: 0;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: rgba(0, 0, 0, 0.6);
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+        .modal-contenido {
+
+            background-color: white;
+
+            width: 90%;
+
+            max-width: 450px;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+
+        }
+
+
+        .modal-contenido img {
+
+            width: 150px;
+
+            max-width: 80%;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .modal-contenido h2 {
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .modal-contenido p {
+
+            color: #555;
+
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .btn-aceptar {
+
+            padding: 12px 35px;
+
+            background-color: #dc2626;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+        }
+
+
+        .btn-aceptar:hover {
+
+            background-color: #b91c1c;
+
+        }
     </style>
     ```
 
@@ -465,7 +565,31 @@
 
 
     </main>
+    <!-- VENTANA DE AGRADECIMIENTO -->
 
+    <div id="mensajeGracias" class="modal">
+
+        <div class="modal-contenido">
+
+            <img src="Logo.png" alt="Logo de Guanovisión">
+
+            <h2>¡Gracias por preferirnos!</h2>
+
+            <p>
+                Gracias por comunicarse con Guanovisión.
+                Su mensaje ha sido recibido correctamente.
+                Estamos para servirle.
+            </p>
+
+            <button class="btn-aceptar" onclick="cerrarMensaje()">
+
+                Aceptar
+
+            </button>
+
+        </div>
+
+    </div>
 
     <!-- JAVASCRIPT PARA EL CORREO -->
 
@@ -475,64 +599,77 @@
 
         function enviarCorreo() {
 
-
             const nombre =
-
                 document.getElementById("nombre").value;
 
-
             const correo =
-
                 document.getElementById("correo").value;
 
-
             const mensaje =
-
                 document.getElementById("mensaje").value;
 
 
             const destinatario =
-
                 "ceci33cruza@gmail.com";
 
 
             const asunto =
-
                 "Mensaje recibido desde el Buzón de Guanovisión";
 
 
             const cuerpo =
 
-
                 "Nombre: " + nombre +
 
-
                 "\n\nCorreo: " + correo +
-
 
                 "\n\nMensaje:\n" + mensaje;
 
 
-            window.location.href =
+            // Guardamos los datos temporalmente
 
+            window.correoPreparado =
 
                 "mailto:" +
 
-
                 destinatario +
-
 
                 "?subject=" +
 
-
                 encodeURIComponent(asunto) +
-
 
                 "&body=" +
 
-
                 encodeURIComponent(cuerpo);
 
+
+            // Mostramos el mensaje
+
+            document.getElementById("mensajeGracias").style.display = "flex";
+
+        }
+
+
+        function cerrarMensaje() {
+
+
+            // Borramos el formulario
+
+            document.getElementById("nombre").value = "";
+
+            document.getElementById("correo").value = "";
+
+            document.getElementById("mensaje").value = "";
+
+
+            // Cerramos el mensaje
+
+            document.getElementById("mensajeGracias").style.display = "none";
+
+
+            // Abrimos el correo preparado
+
+            window.location.href = window.correoPreparado;
 
         }
 
