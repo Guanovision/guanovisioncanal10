@@ -1,289 +1,193 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Canal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <title>Mi Canal</title>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
 
-    <style>
-        /* CONFIGURACIÓN GENERAL */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    /* BARRA SUPERIOR COMPACTA (COMO AL PRINCIPIO) */
+    header {
+      background-color: #111827;
+      color: white;
+      height: 70px; /* Tamaño normal, sin espacio vacío */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      position: relative;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
+    /* LOGO DENTRO DE LA BARRA (ARRIBA IZQUIERDA) */
+    .logo-arriba {
+      height: 50px;
+      width: auto;
+    }
 
-        header {
-            background-color: #111827;
-            color: white;
-            min-height: 80px;
+    /* MENÚ CENTRADO, SIN ESPACIOS VACÍOS */
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 auto;
+    }
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
 
-            padding: 10px 40px;
-            gap: 20px;
-        }
+    nav a:hover {
+      background-color: #374151;
+    }
 
-        .logo img {
-            height: 60px;
-            width: auto;
-            display: block;
-        }
+    .buzon {
+      background-color: #dc2626;
+      border-radius: 5px;
+    }
 
-        /* MENÚ */
-        nav {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+    .buzon:hover {
+      background-color: #b91c1c;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 18px;
-            border-radius: 6px;
-            transition: 0.3s;
-            white-space: nowrap;
-        }
+    /* FECHA Y HORA ARRIBA DERECHA */
+    .fecha-hora {
+      color: white;
+      text-align: right;
+      white-space: nowrap;
+    }
 
-        nav a:hover {
-            background-color: #374151;
-        }
+    #fecha { font-size: 13px; }
+    #hora { font-size: 18px; font-weight: bold; }
 
-        /* BOTÓN BUZÓN */
-        .buzon {
-            background-color: #dc2626;
-            border-radius: 6px;
-        }
+    /* =============================================
+       CAJÓN DE REDES: MÁS ABAJO, BIEN A LA IZQUIERDA
+       ============================================= */
+    .cajon-redes {
+      position: absolute;
+      top: 90px; /* 🔽 MÁS ABAJO DE LA BARRA */
+      left: 15px; /* 🔙 MÁS PEGADO A LA IZQUIERDA */
+      background-color: #1e293b;
+      padding: 12px 10px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column; /* VERTICAL */
+      gap: 15px;
+      border: 1px solid #334155;
+    }
 
-        .buzon:hover {
-            background-color: #b91c1c;
-        }
+    .cajon-redes img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      transition: 0.2s;
+    }
 
-        /* CONTENIDO PRINCIPAL */
-        main {
-            padding: 40px;
-        }
+    .cajon-redes img:hover {
+      transform: scale(1.15);
+    }
 
-        .bienvenida {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-        }
+    /* CONTENIDO PRINCIPAL */
+    main {
+      padding: 60px 20px 40px 20px; /* Espacio para no chocar con el cajón */
+    }
 
-        .bienvenida h1 {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
+    .bienvenida {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+    }
 
-        .bienvenida p {
-            font-size: 18px;
-            color: #555;
-        }
+    .bienvenida h1 { font-size: 34px; margin-bottom: 12px; }
+    .bienvenida p { font-size: 17px; color: #555; }
 
-        /* =============================== */
-        /* TABLETS */
-        /* =============================== */
-
-        @media (max-width: 1000px) {
-
-            header {
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            nav {
-                width: 100%;
-            }
-
-        }
-
-
-        /* =============================== */
-        /* CELULARES */
-        /* =============================== */
-
-        @media (max-width: 600px) {
-
-            header {
-                padding: 15px 10px;
-            }
-
-            .logo img {
-                height: 50px;
-            }
-
-            nav {
-                flex-direction: column;
-                width: 100%;
-                gap: 5px;
-            }
-
-            nav a {
-                text-align: center;
-                width: 100%;
-                padding: 10px;
-            }
-
-            main {
-                padding: 15px;
-            }
-
-            .bienvenida {
-                padding: 25px 15px;
-            }
-
-            .bienvenida h1 {
-                font-size: 26px;
-            }
-
-            .bienvenida p {
-                font-size: 16px;
-            }
-
-        }
-
-        .fecha-hora {
-            margin-left: auto;
-            text-align: right;
-            color: white;
-            white-space: nowrap;
-        }
-
-        #fecha {
-            font-size: 14px;
-        }
-
-        #hora {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        @media (max-width: 600px) {
-
-            .fecha-hora {
-                margin-left: 0;
-                text-align: center;
-                width: 100%;
-            }
-
-        }
-    </style>
+    /* RESPONSIVO */
+    @media (max-width: 900px) {
+      header { height: auto; padding: 10px; flex-wrap: wrap; }
+      .logo-arriba { margin: 0 auto 10px auto; }
+      nav { width: 100%; order: 3; margin: 10px 0; }
+      .fecha-hora { width: 100%; text-align: center; order: 2; }
+      .cajon-redes {
+        position: static;
+        margin: 20px auto;
+        flex-direction: row;
+      }
+      main { padding-top: 20px; }
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <!-- LOGO ARRIBA IZQUIERDA (DENTRO DE LA BARRA) -->
+    <img src="Logo.png" alt="Guano Visión TV" class="logo-arriba">
 
-    <header>
+    <!-- MENÚ ARRIBA CENTRO (SIN ESPACIOS VACÍOS) -->
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="CÓDIGO DE ÉTICA DEL CANAL GUANOVISIÓN.pdf" target="_blank">📜 Código de Ética</a>
+      <a href="noticias.html">📰 Noticias</a>
+      <a href="deportes.html">⚽ Deportes</a>
+      <a href="entretenimiento.html">🎵 Entretenimiento</a>
+      <a href="buzon.html" class="buzon">📬 Buzón</a>
+    </nav>
 
-        <!-- LOGO DEL CANAL -->
-        <div class="logo">
-            <img src="Logo.png" alt="Logo del canal">
-        </div>
+    <!-- FECHA Y HORA ARRIBA DERECHA -->
+    <div class="fecha-hora">
+      <div id="fecha"></div>
+      <div id="hora"></div>
+    </div>
 
-        <!-- MENÚ -->
-        <nav>
-            <a href="index.html">Inicio</a>
+    <!-- ✅ CAJÓN DE REDES: MÁS ABAJO Y A LA IZQUIERDA -->
+    <div class="cajon-redes">
+      <a href="https://www.facebook.com/share/18atR5m3qx/" target="_blank">
+        <img src="facebook.png" alt="Facebook" />
+      </a>
+      <a href="https://www.instagram.com/guanovison_ec?igsh=NjV0c2ZiZDFiZXo0" target="_blank">
+        <img src="instagram.png" alt="Instagram" />
+      </a>
+      <a href="https://youtube.com/@guanovisiontv?si=TPn5InwYzlW5fV7l" target="_blank">
+        <img src="youtube.png" alt="YouTube" />
+      </a>
+      <a href="https://www.tiktok.com/@guano_vision?_r=1&_t=ZS-98HDQtvIZUO" target="_blank">
+        <img src="tiktok.png" alt="TikTok" />
+      </a>
+    </div>
+  </header>
 
-            <a href="CÓDIGO DE ÉTICA DEL CANAL GUANOVISIÓN.pdf" target="_blank">
-                📜 Código de Ética
-            </a>
+  <main>
+    <section class="bienvenida">
+      <h1>Bienvenidos a MI CANAL</h1>
+      <p>Noticias, deportes, entretenimiento y mucho más.</p>
+    </section>
+  </main>
 
-            <a href="noticias.html">📰 Noticias</a>
-            <a href="deportes.html">⚽ Deportes</a>
-            <a href="entretenimiento.html">🎵 Entretenimiento</a>
-            <a href="buzon.html" class="buzon">📬 Buzón</a>
-        </nav>
-
-        <!-- FECHA Y HORA -->
-        <div class="fecha-hora">
-            <div id="fecha"></div>
-            <div id="hora"></div>
-        </div>
-
-    </header>
-
-
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <main>
-
-        <section class="bienvenida">
-
-            <h1>Bienvenidos a MI CANAL</h1>
-
-            <p>
-                Noticias, deportes, entretenimiento y mucho más.
-            </p>
-
-        </section>
-
-    </main>
-    <script>
-
-        function actualizarFechaHora() {
-
-            const ahora = new Date();
-
-            const dias = [
-                "Domingo",
-                "Lunes",
-                "Martes",
-                "Miércoles",
-                "Jueves",
-                "Viernes",
-                "Sábado"
-            ];
-
-            const meses = [
-                "Enero",
-                "Febrero",
-                "Marzo",
-                "Abril",
-                "Mayo",
-                "Junio",
-                "Julio",
-                "Agosto",
-                "Septiembre",
-                "Octubre",
-                "Noviembre",
-                "Diciembre"
-            ];
-
-            const diaSemana = dias[ahora.getDay()];
-            const dia = ahora.getDate();
-            const mes = meses[ahora.getMonth()];
-            const año = ahora.getFullYear();
-
-            const horas = String(ahora.getHours()).padStart(2, "0");
-            const minutos = String(ahora.getMinutes()).padStart(2, "0");
-            const segundos = String(ahora.getSeconds()).padStart(2, "0");
-
-            document.getElementById("fecha").textContent =
-                `${diaSemana} ${dia} de ${mes} ${año}`;
-
-            document.getElementById("hora").textContent =
-                `${horas}:${minutos}:${segundos}`;
-
-        }
-
-        actualizarFechaHora();
-
-        setInterval(actualizarFechaHora, 1000);
-
-    </script>
-
-
+  <script>
+    function actualizarFechaHora() {
+      const ahora = new Date();
+      const dias = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+      const meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+      document.getElementById("fecha").textContent = `${dias[ahora.getDay()]} ${ahora.getDate()} de ${meses[ahora.getMonth()]} ${ahora.getFullYear()}`;
+      document.getElementById("hora").textContent = `${String(ahora.getHours()).padStart(2,"0")}:${String(ahora.getMinutes()).padStart(2,"0")}`;
+    }
+    actualizarFechaHora();
+    setInterval(actualizarFechaHora, 1000);
+  </script>
 </body>
-
 </html>
