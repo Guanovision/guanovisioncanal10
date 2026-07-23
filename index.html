@@ -20,7 +20,7 @@
     }
 
     /* ===============================
-       BARRA SUPERIOR (FIJA Y VISIBLE)
+       BARRA SUPERIOR - IGUAL EN TODAS
        =============================== */
     header {
       background-color: #111827;
@@ -31,7 +31,7 @@
       justify-content: space-between;
       padding: 0 20px;
       position: relative;
-      flex-shrink: 0; /* NUNCA SE OCULTA NI SE MUEVE */
+      flex-shrink: 0;
     }
 
     .logo-fecha {
@@ -68,6 +68,7 @@
       white-space: nowrap;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
 
     nav.menu-principal a:hover {
@@ -88,7 +89,9 @@
       background-color: #b91c1c;
     }
 
-    /* CAJÓN REDES FIJO (SOLO PC) */
+    /* ===============================
+       CAJÓN REDES - IGUAL EN TODAS
+       =============================== */
     .cajon-redes {
       position: absolute;
       top: 90px;
@@ -108,35 +111,36 @@
       object-fit: contain;
       transition: 0.2s;
     }
+
     .cajon-redes img:hover {
       transform: scale(1.15);
     }
 
     /* ===============================
-       CONTENIDO PRINCIPAL
+       CONTENIDO - SOLO CAMBIA ESTO
        =============================== */
     main {
       flex: 1;
-      padding: 60px 20px 40px 20px;
+      padding: 60px 20px 40px 80px;
     }
-    .bienvenida {
+    .contenido-pagina {
       background: white;
       padding: 40px;
       border-radius: 8px;
       text-align: center;
     }
-    .bienvenida h1 { font-size: 34px; margin-bottom: 12px; }
-    .bienvenida p { font-size: 17px; color: #555; }
+    .contenido-pagina h1 { font-size: 34px; margin-bottom: 12px; }
+    .contenido-pagina p { font-size: 17px; color: #555; }
 
     /* ===============================
-       BARRA INFERIOR (MISMO COLOR SUPERIOR - SIEMPRE VISIBLE)
+       BARRA INFERIOR - IGUAL EN TODAS
        =============================== */
     footer {
-      background-color: #111827; /* MISMO COLOR OSCURO */
+      background-color: #111827;
       color: white;
       padding: 15px 20px;
       margin-top: auto;
-      flex-shrink: 0; /* NUNCA SE OCULTA */
+      flex-shrink: 0;
     }
 
     .menu-inferior {
@@ -154,6 +158,9 @@
       padding: 5px 10px;
       transition: 0.2s;
       border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .menu-inferior a:hover {
@@ -161,7 +168,7 @@
     }
 
     /* ===============================
-       📱 VISTA CELULAR
+       📱 VISTA CELULAR - IGUAL EN TODAS
        =============================== */
     @media (max-width: 900px) {
       header { height: auto; padding: 12px 15px; flex-wrap: wrap; }
@@ -183,7 +190,7 @@
         width: 100%;
         display: none;
         flex-direction: column;
-        gap: 5px;
+        gap: 8px;
         margin-top: 10px;
         order: 3;
       }
@@ -191,11 +198,24 @@
       .menu-desplegable a {
         color: white;
         text-decoration: none;
-        padding: 12px;
-        border-radius: 5px;
+        padding: 14px;
+        border-radius: 6px;
         background-color: #1e293b;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 16px;
       }
+
+      .menu-desplegable a img.icono-inicio {
+        height: 18px;
+        width: auto;
+        margin: 0;
+        padding: 0;
+      }
+
       .menu-desplegable a:hover { background-color: #374151; }
 
       .redes-movil {
@@ -214,7 +234,7 @@
       }
 
       main { padding: 20px 15px; }
-      .bienvenida h1 { font-size: 26px; }
+      .contenido-pagina h1 { font-size: 26px; }
 
       .menu-inferior { gap: 15px; font-size: 14px; }
     }
@@ -226,6 +246,9 @@
 </head>
 
 <body>
+  <!-- ===============================
+       ENCABEZADO - NO LO MODIFIQUES
+       =============================== -->
   <header>
     <div class="logo-fecha">
       <div class="logo">
@@ -239,7 +262,6 @@
 
     <button class="boton-menu" onclick="mostrarMenu()">☰</button>
 
-    <!-- MENÚ SUPERIOR SIN CÓDIGO DE ÉTICA + IMAGEN INICIO -->
     <nav class="menu-principal">
       <a href="index.html">
         <img src="Inicio.png" alt="Inicio" class="icono-inicio" />
@@ -247,6 +269,7 @@
       <a href="noticias.html">📰 Noticias</a>
       <a href="deportes.html">⚽ Deportes</a>
       <a href="entretenimiento.html">🎵 Entretenimiento</a>
+      <a href="programacion.html">📺 Programación</a>
       <a href="buzon.html" class="buzon">📬 Buzón</a>
     </nav>
 
@@ -257,7 +280,8 @@
       <a href="noticias.html">📰 Noticias</a>
       <a href="deportes.html">⚽ Deportes</a>
       <a href="entretenimiento.html">🎵 Entretenimiento</a>
-      <a href="buzon.html" class="buzon">📬 Buzón</a>
+      <a href="programacion.html">📺 Programación</a>
+      <a href="buzon.html">📬 Buzón</a>
     </nav>
 
     <div class="redes-movil">
@@ -275,14 +299,19 @@
     </div>
   </header>
 
+  <!-- ===============================
+       CONTENIDO - SOLO CAMBIA ESTO
+       =============================== -->
   <main>
-    <section class="bienvenida">
-      <h1>Bienvenidos a MI CANAL</h1>
-      <p>Noticias, deportes, entretenimiento y mucho más.</p>
+    <section class="contenido-pagina">
+      <h1>TÍTULO DE TU SECCIÓN</h1>
+      <p>Aquí pones la información propia de esta página.</p>
     </section>
   </main>
 
-  <!-- BARRA INFERIOR MISMO COLOR, SIEMPRE VISIBLE -->
+  <!-- ===============================
+       PIE DE PÁGINA - NO LO MODIFIQUES
+       =============================== -->
   <footer>
     <div class="menu-inferior">
       <a href="CÓDIGO DE ÉTICA DEL CANAL GUANOVISIÓN.pdf" target="_blank">📜 Código de Ética</a>
