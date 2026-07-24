@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiénes Somos - Guano Visión TV</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===============================
+       BARRA SUPERIOR - IGUAL EN TODAS
+       =============================== */
+    header {
+      background-color: #111827;
+      color: white;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .logo-fecha {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .fecha-hora {
+      color: white;
+      white-space: nowrap;
+    }
+    #fecha { font-size: 12px; }
+    #hora { font-size: 16px; font-weight: bold; }
+
+    nav.menu-principal {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav.menu-principal a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: 0.2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    nav.menu-principal a:hover {
+      background-color: #374151;
+    }
+
+    .icono-inicio {
+      height: 20px;
+      width: auto;
+      display: block;
+    }
+
+    .buzon {
+      background-color: #dc2626;
+      border-radius: 5px;
+    }
+    .buzon:hover {
+      background-color: #b91c1c;
+    }
+
+    /* ===============================
+       CAJÓN REDES - IGUAL EN TODAS
+       =============================== */
+    .cajon-redes {
+      position: absolute;
+      top: 90px;
+      left: 15px;
+      background-color: #1e293b;
+      padding: 12px 10px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      border: 1px solid #334155;
+    }
+
+    .cajon-redes img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      transition: 0.2s;
+    }
+
+    .cajon-redes img:hover {
+      transform: scale(1.15);
+    }
+
+    /* ===============================
+       CONTENIDO - QUIENES SOMOS
+       =============================== */
+    main {
+      flex: 1;
+      padding: 60px 20px 40px 80px;
+    }
+    .contenido-pagina {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      line-height: 1.7;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .contenido-pagina h1 {
+      font-size: 32px;
+      margin-bottom: 25px;
+      color: #111827;
+      text-align: center;
+      border-bottom: 2px solid #dc2626;
+      padding-bottom: 10px;
+    }
+    .contenido-pagina p {
+      font-size: 17px;
+      text-align: justify;
+      margin-bottom: 15px;
+    }
+
+    /* ===============================
+       BARRA INFERIOR - IGUAL EN TODAS
+       =============================== */
+    footer {
+      background-color: #111827;
+      color: white;
+      padding: 15px 20px;
+      margin-top: auto;
+      flex-shrink: 0;
+    }
+
+    .menu-inferior {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .menu-inferior a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 5px 10px;
+      transition: 0.2s;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .menu-inferior a:hover {
+      background-color: #374151;
+    }
+
+    /* ===============================
+       📱 VISTA CELULAR - IGUAL EN TODAS
+       =============================== */
+    @media (max-width: 900px) {
+      header { height: auto; padding: 12px 15px; flex-wrap: wrap; }
+
+      nav.menu-principal { display: none; }
+      .cajon-redes { display: none; }
+
+      .boton-menu {
+        display: block;
+        font-size: 28px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+
+      .menu-desplegable {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 10px;
+        order: 3;
+      }
+
+      .menu-desplegable a {
+        color: white;
+        text-decoration: none;
+        padding: 14px;
+        border-radius: 6px;
+        background-color: #1e293b;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 16px;
+      }
+
+      .menu-desplegable a img.icono-inicio {
+        height: 18px;
+        width: auto;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menu-desplegable a:hover { background-color: #374151; }
+
+      .redes-movil {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        order: 2;
+        width: 100%;
+        justify-content: flex-start;
+        padding-left: 5px;
+      }
+      .redes-movil img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+      }
+
+      main { padding: 20px 15px; }
+      .contenido-pagina { padding: 25px 20px; }
+      .contenido-pagina h1 { font-size: 26px; }
+
+      .menu-inferior { gap: 15px; font-size: 14px; }
+    }
+
+    @media (min-width: 901px) {
+      .boton-menu, .menu-desplegable, .redes-movil { display: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===============================
+       ENCABEZADO - NO MODIFICAR
+       =============================== -->
+  <header>
+    <div class="logo-fecha">
+      <div class="logo">
+        <img src="Logo.png" alt="Guano Visión TV" />
+      </div>
+      <div class="fecha-hora">
+        <div id="fecha"></div>
+        <div id="hora"></div>
+      </div>
+    </div>
+
+    <button class="boton-menu" onclick="mostrarMenu()">☰</button>
+
+    <nav class="menu-principal">
+      <a href="index.html">
+        <img src="Inicio.png" alt="Inicio" class="icono-inicio" />
+      </a>
+      <a href="noticias.html">📰 Noticias</a>
+      <a href="deportes.html">⚽ Deportes</a>
+      <a href="entretenimiento.html">🎵 Entretenimiento</a>
+      <a href="programacion.html">📺 Programación</a>
+      <a href="buzon.html" class="buzon">📬 Buzón</a>
+    </nav>
+
+    <nav class="menu-desplegable" id="menu-movil">
+      <a href="index.html">
+        <img src="Inicio.png" alt="Inicio" class="icono-inicio" />
+      </a>
+      <a href="noticias.html">📰 Noticias</a>
+      <a href="deportes.html">⚽ Deportes</a>
+      <a href="entretenimiento.html">🎵 Entretenimiento</a>
+      <a href="programacion.html">📺 Programación</a>
+      <a href="buzon.html">📬 Buzón</a>
+    </nav>
+
+    <div class="redes-movil">
+      <a href="https://www.facebook.com/share/18atR5m3qx/" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/guanovison_ec?igsh=NjV0c2ZiZDFiZXo0" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+      <a href="https://youtube.com/@guanovisiontv?si=TPn5InwYzlW5fV7l" target="_blank"><img src="youtube.png" alt="YouTube"></a>
+      <a href="https://www.tiktok.com/@guano_vision?_r=1&_t=ZS-98HDQtvIZUO" target="_blank"><img src="tiktok.png" alt="TikTok"></a>
+    </div>
+
+    <div class="cajon-redes">
+      <a href="https://www.facebook.com/share/18atR5m3qx/" target="_blank"><img src="facebook.png" alt="Facebook" /></a>
+      <a href="https://www.instagram.com/guanovison_ec?igsh=NjV0c2ZiZDFiZXo0" target="_blank"><img src="instagram.png" alt="Instagram" /></a>
+      <a href="https://youtube.com/@guanovisiontv?si=TPn5InwYzlW5fV7l" target="_blank"><img src="youtube.png" alt="YouTube" /></a>
+      <a href="https://www.tiktok.com/@guano_vision?_r=1&_t=ZS-98HDQtvIZUO" target="_blank"><img src="tiktok.png" alt="TikTok" /></a>
+    </div>
+  </header>
+
+  <!-- ===============================
+       CONTENIDO PRINCIPAL
+       =============================== -->
+  <main>
+    <section class="contenido-pagina">
+      <h1>¿QUIENES SOMOS?</h1>
+      <p><strong>Guanovisión</strong> es un medio de comunicación arraigado en el cantón Guano, provincia de Chimborazo, cuya labor se sustenta en el estricto acatamiento a los principios, valores y normas contenidas en su Código de Ética. Conformamos un equipo integrado por directivos, profesionales de la comunicación, personal técnico y administrativo, así como colaboradores comprometidos con el ejercicio de una comunicación responsable, transparente y al servicio del interés general.</p>
+
+      <p>Nos distinguimos por ejercer nuestra labor con veracidad, independencia editorial e imparcialidad, libres de cualquier presión o interés particular. Actuamos con irrestricto respeto a la dignidad humana, al pluralismo y a los derechos fundamentales de todas las personas, sin discriminación alguna. Asumimos como compromiso indeclinable informar, educar y entretener con responsabilidad social, fortaleciendo la identidad cultural local, fomentando la participación ciudadana y contribuyendo al desarrollo integral de nuestra comunidad, la provincia y el país.</p>
+    </section>
+  </main>
+
+  <!-- ===============================
+       PIE DE PÁGINA - NO MODIFICAR
+       =============================== -->
+  <footer>
+    <div class="menu-inferior">
+      <a href="codigo-etica.html">📜 Código de Ética</a>
+      <a href="quienes-somos.html">👥 Quiénes Somos</a>
+      <a href="mision-vision.html">🎯 Misión y Visión</a>
+    </div>
+  </footer>
+
+  <script>
+    function actualizarFechaHora() {
+      const ahora = new Date();
+      const dias = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+      const meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+      document.getElementById("fecha").textContent = `${dias[ahora.getDay()]} ${ahora.getDate()} de ${meses[ahora.getMonth()]} ${ahora.getFullYear()}`;
+      document.getElementById("hora").textContent = `${String(ahora.getHours()).padStart(2,"0")}:${String(ahora.getMinutes()).padStart(2,"0")}`;
+    }
+    actualizarFechaHora();
+    setInterval(actualizarFechaHora, 1000);
+
+    function mostrarMenu() {
+      const menu = document.getElementById("menu-movil");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+</body>
+</html>
